@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128' role='img' aria-labelledby='title desc'>
+  <title id='title'>Swarm Cabinet</title>
+  <desc id='desc'>Three turquoise file tabs sit behind a dark cabinet label.</desc>
+  <rect x='4' y='4' width='120' height='120' rx='27' fill='#112329'/>
+  <path d='M27 71V40a5 5 0 0 1 5-5h13a5 5 0 0 1 5 5v31m3 0V27a5 5 0 0 1 5-5h13a5 5 0 0 1 5 5v44m3 0V34a5 5 0 0 1 5-5h12a5 5 0 0 1 5 5v37' fill='none' stroke='#6ee7d5' stroke-width='6' stroke-linejoin='round'/>
+  <rect x='21' y='64' width='86' height='41' rx='9' fill='#112329' stroke='#6ee7d5' stroke-width='6'/>
+  <path d='M53 83h22' stroke='#faf0c6' stroke-width='6' stroke-linecap='round'/>
+</svg>

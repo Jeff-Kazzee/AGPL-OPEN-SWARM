@@ -1,5 +1,7 @@
 # Swarm Cabinet
 
+<img src='docs/preservation/swarm-cabinet.svg' alt='Swarm Cabinet mark, three cyan file tabs behind a cabinet label' width='128' height='128' />
+
 An independent community preservation copy of OpenSwarm 1.7.7.
 
 OpenSwarm is a desktop workspace for running agents and organising their sessions, files, tools, and outputs on a dashboard. This archive records a specific upstream snapshot. It carries no endorsement from the original project and has no independent installer or update channel.
