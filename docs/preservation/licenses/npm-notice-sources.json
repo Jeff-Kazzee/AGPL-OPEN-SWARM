@@ -1,0 +1,122 @@
+[
+  {
+    "package": "@kirbah/mcp-youtube",
+    "version": "1.1.12",
+    "directory": "kirbah-mcp-youtube-1.1.12",
+    "license": "MIT",
+    "package_metadata": "https://registry.npmjs.org/%40kirbah%2Fmcp-youtube/1.1.12",
+    "tarball": "https://registry.npmjs.org/@kirbah/mcp-youtube/-/mcp-youtube-1.1.12.tgz",
+    "tarball_integrity": "sha512-hagkG+ycfbnoygzftkjRQXnXKtByAXc4zzZaRCBqWoXbHviiYXC56YCZ/HgjGLsaF++wb7X3Axl52CuD+7c2rw==",
+    "files": [
+      {
+        "file": "LICENSE",
+        "sha256": "f7c8b034b89f1c710407536ce6a6ee750e561b9ed180bae1d43b4a763207a96d"
+      }
+    ]
+  },
+  {
+    "package": "@notionhq/notion-mcp-server",
+    "version": "2.2.1",
+    "directory": "notionhq-notion-mcp-server-2.2.1",
+    "license": "MIT",
+    "package_metadata": "https://registry.npmjs.org/%40notionhq%2Fnotion-mcp-server/2.2.1",
+    "tarball": "https://registry.npmjs.org/@notionhq/notion-mcp-server/-/notion-mcp-server-2.2.1.tgz",
+    "tarball_integrity": "sha512-Fw3ErV73sEI+ZrnOycR+5Lk8Ig6hEBy3EuyMlIEpb+DS18i3X1sxTWeyIC4ph1RjPVfoDAPrAREhnmMMzlG/oQ==",
+    "files": [
+      {
+        "file": "LICENSE",
+        "sha256": "2fd3e5272a40483e9cc8140136b4438708a496ea2da2537b98f0f2bbb68148ee"
+      }
+    ]
+  },
+  {
+    "package": "@softeria/ms-365-mcp-server",
+    "version": "0.95.0",
+    "directory": "softeria-ms-365-mcp-server-0.95.0",
+    "license": "MIT",
+    "package_metadata": "https://registry.npmjs.org/%40softeria%2Fms-365-mcp-server/0.95.0",
+    "tarball": "https://registry.npmjs.org/@softeria/ms-365-mcp-server/-/ms-365-mcp-server-0.95.0.tgz",
+    "tarball_integrity": "sha512-aDDKwTQCdat6lbtHPd0E8awE19HzxM2tZ5zwvs9VoLcd2T3Ix06781R017tHngf6+MGeQF7SqwcRhSe6a8dcRA==",
+    "files": [
+      {
+        "file": "LICENSE",
+        "sha256": "d60e679abdd0c51aca236cc196d002232bcb73c7eff3fcafb307c55808ba16ea"
+      }
+    ]
+  },
+  {
+    "package": "gaxios",
+    "version": "7.3.0",
+    "directory": "gaxios-7.3.0",
+    "license": "Apache-2.0",
+    "package_metadata": "https://registry.npmjs.org/gaxios/7.3.0",
+    "tarball": "https://registry.npmjs.org/gaxios/-/gaxios-7.3.0.tgz",
+    "tarball_integrity": "sha512-RB5vLV+vvQeoFPCX4QMK6/hjVkbIamPp1QSUD0CiZcnj12qbpiL+pLbYtgD+oZkWl0tl9z+o2Utp+MpM3QRhBA==",
+    "files": [
+      {
+        "file": "LICENSE",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      }
+    ]
+  },
+  {
+    "package": "googleapis-common",
+    "version": "8.0.3",
+    "directory": "googleapis-common-8.0.3",
+    "license": "Apache-2.0",
+    "package_metadata": "https://registry.npmjs.org/googleapis-common/8.0.3",
+    "tarball": "https://registry.npmjs.org/googleapis-common/-/googleapis-common-8.0.3.tgz",
+    "tarball_integrity": "sha512-7g1yzQKx0mmNTjiK0H9dJ8eqKqDBveES9vLHeg5neb3BMQy/d1oQefIMhIpOVT8a+f+LOcixMEdRbFIW/cQUJw==",
+    "files": [
+      {
+        "file": "LICENSE",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      }
+    ]
+  },
+  {
+    "package": "mongodb",
+    "version": "7.5.0",
+    "directory": "mongodb-7.5.0",
+    "license": "Apache-2.0",
+    "package_metadata": "https://registry.npmjs.org/mongodb/7.5.0",
+    "tarball": "https://registry.npmjs.org/mongodb/-/mongodb-7.5.0.tgz",
+    "tarball_integrity": "sha512-5FnrEDLnvp6ycUOGLNLLU33BfCx2qmp2mJjGPDwKLruYsVzXVSK5fsGpoDXvsXJwBfBsD7ebMRdawbDxC2814g==",
+    "files": [
+      {
+        "file": "LICENSE.md",
+        "sha256": "6dc0e068dcf3a5bc8e054205b85b7720e1d49265bbc64bf515d2cf79197df69a"
+      }
+    ]
+  },
+  {
+    "package": "reddit-mcp-buddy",
+    "version": "1.1.12",
+    "directory": "reddit-mcp-buddy-1.1.12",
+    "license": "MIT",
+    "package_metadata": "https://registry.npmjs.org/reddit-mcp-buddy/1.1.12",
+    "tarball": "https://registry.npmjs.org/reddit-mcp-buddy/-/reddit-mcp-buddy-1.1.12.tgz",
+    "tarball_integrity": "sha512-rv1oLw3kwqw8XYJhDXviOIiIs5A8goRd/6fwV8kOzsBPpiAEuLdFmXiKoz4gHeNTADDuRfseCr4Aj8L/CQ7oOA==",
+    "files": [
+      {
+        "file": "LICENSE",
+        "sha256": "8e6e3d92264ea4064f3da253e5d98e5324ae9022018c9230c0f584edb279d789"
+      }
+    ]
+  },
+  {
+    "package": "winston",
+    "version": "3.19.0",
+    "directory": "winston-3.19.0",
+    "license": "MIT",
+    "package_metadata": "https://registry.npmjs.org/winston/3.19.0",
+    "tarball": "https://registry.npmjs.org/winston/-/winston-3.19.0.tgz",
+    "tarball_integrity": "sha512-LZNJgPzfKR+/J3cHkxcpHKpKKvGfDZVPS4hfJCc4cCG0CgYzvlD6yE/S3CIL/Yt91ak327YCpiF/0MyeZHEHKA==",
+    "files": [
+      {
+        "file": "LICENSE",
+        "sha256": "e61f2ace04e689d21ba1a7bc54d933bcb6e35ebeb887fb5831b880be5de192a7"
+      }
+    ]
+  }
+]
