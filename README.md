@@ -1,234 +1,63 @@
-<p align="center">
-  <img src="assets/icon.png" alt="Open Swarm" width="128" height="128">
-</p>
+# Swarm Cabinet
 
-<h1 align="center">Open Swarm</h1>
+An independent community preservation copy of OpenSwarm 1.7.7.
 
-<p align="center">
-  <strong>An Army of AI Agents at Your Fingertips</strong>
-  <br>
-  A locally-running orchestrator for managing multiple agents in parallel.
-  <br>
-  Launch, monitor, and coordinate entire swarms of coding agents from a single interface.
-</p>
+OpenSwarm is a desktop workspace for running agents and organising their sessions, files, tools, and outputs on a dashboard. This archive records a specific upstream snapshot. It carries no endorsement from the original project and has no independent installer or update channel.
 
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/platform-macOS-lightgrey.svg" alt="Platform"></a>
-  <a href="https://github.com/openswarm-ai/openswarm/stargazers"><img src="https://img.shields.io/github/stars/openswarm-ai/openswarm?style=social" alt="GitHub Stars"></a>
-  <a href="https://github.com/openswarm-ai/openswarm/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
-</p>
+## Provenance and authors
 
-<br>
+The original project is [OpenSwarm by openswarm-ai](https://github.com/openswarm-ai/openswarm). The Electron manifest credits `openswarm-ai`. GitHub attributes the pinned upstream commit to [ciregenz](https://github.com/ciregenz). The preservation commits record the import and subsequent documentation. The upstream contributors retain credit for their work.
 
-<p align="center">
-  <img src="assets/screenshot.png" alt="Open Swarm Dashboard" width="900">
-</p>
+The source came from the local ZIP `openswarm-14120a43f7e43cbe5a1263fe379b8dfe0a195fb0.zip`. See the [pinned upstream tree](https://github.com/openswarm-ai/openswarm/tree/14120a43f7e43cbe5a1263fe379b8dfe0a195fb0). The archive has 2,024 files, all of which matched GitHub's tree by path, Git blob SHA, and executable mode. The independent root commit `d2c3e0ff057f4a6c47fea7c8ce826a56646b6972` preserves that tree. [Provenance record](docs/preservation/provenance.md)
 
-<br>
-
-## Why Open Swarm?
-
-Running agents in a terminal works fine for one task. But when you're juggling five agents across different branches, approving tool calls in separate windows, and losing track of who's doing what — it falls apart fast.
-
-- **Parallel agents, one screen** — Launch as many agents as you need, arranged on a spatial canvas you can pan and zoom freely
-- **Unified approval workflow** — Every tool-use request from every agent surfaces in one place. Approve or deny with a click or a keyboard shortcut.
-- **Full conversation control** — Edit prior messages to fork conversations, navigate between branches, resume closed sessions
-- **100% local** — Everything runs on your machine. No cloud relay, no telemetry, no third-party backend.
-
-<br>
+`electron/package.json` and `backend/apps/help/changelog.py` both identify the application as **1.7.7**. The `frontend` package has its own version number.
 
 ## Features
 
-**Spatial Dashboard** — Infinite canvas with drag-and-drop agent cards, view cards, and embedded browser cards. Create multiple dashboards for different workspaces.
+- Use dashboards to arrange agent sessions, browser cards, and app previews. [Upstream screenshot](assets/screenshot.png)
+- Run a local FastAPI backend with a React frontend and Electron desktop shell. [Backend entry point](backend/main.py), [frontend manifest](frontend/package.json), [desktop manifest](electron/package.json)
+- Configure model access, agent modes, skills, and MCP tools through the application. MCP lets an agent call tools exposed by a local or remote server. [Settings code](backend/apps/settings), [MCP configuration](backend/apps/tools_lib/mcp_config.py)
 
-**Agent Chat** — Full streaming chat interface powered by WebSockets. Real-time token output, cost tracking per session, and persistent history that survives restarts.
+## Quick start
 
-**Human-in-the-Loop Approvals** — Agents request permission before executing tools. Approve or deny individually, or batch-approve from the dashboard. Configurable per-tool permissions (always allow, ask, deny).
+These are the development entry points as shipped. They were inspected but have not been run for this archive. Review the scripts and use an isolated development environment. Both root launchers can install dependencies and download tools.
 
-**Message Branching** — Edit any prior message to fork the conversation. Navigate freely between branches without losing context.
+| Platform | Requirements and entry point |
+| --- | --- |
+| Windows | `run.ps1` specifies Python 3.12+, Node.js 20+, and npm. From the repository root run `./run.ps1` in PowerShell. |
+| macOS | The original guide lists Python 3.11+, Node.js 18+, npm, and Git. Use the Node.js `20.18.1` pin in `.nvmrc`. From the repository root run `bash run.sh`. The script downloads Darwin-specific `uv` binaries if needed. |
 
-**Prompt Templates** — Build reusable templates with structured input fields. Invoke them inline via `/` slash commands.
+The launchers start the backend, frontend, and Electron window. By default the frontend is at `http://localhost:3000`, the backend at `http://localhost:8324`, and the FastAPI docs at `http://localhost:8324/docs`. Windows binds its backend to `127.0.0.1`. The macOS backend script binds to `0.0.0.0` and the root launcher may terminate processes using its selected ports. Use an isolated network and check port ownership before you start it. [Windows launcher](run.ps1), [macOS launcher](run.sh), [backend launcher](backend/run.sh)
 
-**Skills Library** — Manage skills that sync directly to `~/.claude/skills/`. Browse and install from the official Anthropic skills marketplace.
-
-**Tools Library** — Configure MCP tool servers (stdio, HTTP, SSE) with automatic tool discovery. Browse the MCP registry and Google's catalog with GitHub star counts. Includes Google Workspace OAuth integration.
-
-**Agent Modes** — Five built-in modes (Agent, Ask, Plan, View Builder, Skill Builder) plus custom user-defined modes with configurable system prompts and tool restrictions.
-
-**Views & Outputs** — Create interactive HTML/JS/CSS artifacts rendered in iframes. Supports vibe coding (LLM-generates the view), backend Python execution, auto-run with LLM-generated data, and agent-driven data gathering.
-
-**Git Worktree Isolation** — Each agent operates in its own git worktree and branch, preventing conflicts between parallel workstreams.
-
-**Diff Viewer** — Inspect uncommitted changes in any agent's worktree without leaving the app.
-
-**Cost Tracking** — Real-time USD spend tracking per agent session.
-
-**Dark & Light Themes** — Full theme support with design tokens.
-
-**Keyboard Shortcuts** — Navigate between agents, approve/deny requests, and switch pages without touching a mouse.
-
-<br>
-
-## Quick Start
-
-### Desktop App
-
-Download the latest release for macOS from [GitHub Releases](https://github.com/openswarm-ai/openswarm/releases).
-
-> Windows and Linux builds are planned but not yet available.
-
-### Development Setup
-
-**Prerequisites:** Python 3.11+, Node.js 18+, Git
-
-```bash
-git clone https://github.com/openswarm-ai/openswarm.git
-cd openswarm
-bash run.sh
-```
-
-This starts the backend (port 8324), frontend (port 3000), and Electron shell together. Once running, set your Anthropic API key in the in-app Settings page.
-
-To run services individually:
-
-```bash
-bash backend/run.sh     # API at http://localhost:8324 — docs at /docs
-bash frontend/run.sh    # App at http://localhost:3000
-```
-
-<br>
-
-## Architecture
-
-```
-Electron Shell (desktop wrapper, auto-updater)
-├─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│   Frontend (React/TypeScript :3000)       Backend (FastAPI :8324)   │
-│   ┌───────────────────────────────┐      ┌───────────────────────┐  │
-│   │  Spatial Dashboard Canvas     │◄────►│  REST API  (/api/*)   │  │
-│   │  Agent Chat (streaming)       │      │  WebSocket (/ws/*)    │  │
-│   │  Templates / Skills / Tools   │ WS   │  Agent Manager        │  │
-│   │  Modes / Views / Commands     │◄────►│    └─ claude-agent-sdk│  │
-│   │  Settings                     │      │  MCP Tool Discovery   │  │
-│   │  Redux Toolkit (state)        │      │  JSON File Storage    │  │
-│   └───────────────────────────────┘      └───────────────────────┘  │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
-<br>
+Once the window opens, the upstream flow is to configure a model in Settings, open or create a dashboard, and add an agent session. Start with a disposable workspace and check which files, tools, and external providers the session can access. The [upstream screenshot](assets/screenshot.png) shows the dashboard at this snapshot. Functional onboarding, account sign-in, and provider connectivity remain unverified.
 
 ## Configuration
 
-The Anthropic API key is configured in-app via the **Settings** page — no environment variable needed for normal usage.
+| Scope | Where to look |
+| --- | --- |
+| Model access and tools | See [backend environment reference](backend/ENV_README.md), [settings](backend/apps/settings), and [MCP configuration](backend/apps/tools_lib/mcp_config.py). Use your own account or API credentials. Keep real values out of Git. |
+| Google Workspace | The upstream example lists `GOOGLE_OAUTH_CLIENT_ID` and `GOOGLE_OAUTH_CLIENT_SECRET` for optional Google OAuth. The historical setup guide lists `http://localhost:8324/api/tools/oauth/callback`. Verify this flow with your own OAuth client before relying on it. [Environment example](backend/.env.example), [upstream setup guide](GETTING_STARTED.md) |
+| Development analytics | Both root launchers have an `OPENSWARM_ANALYTICS=1` opt-in path that defaults to the upstream analytics endpoint. Leave it unset for ordinary development. The application also contains other network integrations, so use network isolation if you need to prevent egress. [Windows launcher](run.ps1), [macOS launcher](run.sh), [analytics client](backend/apps/service/analytics/client.py) |
+| Signing and publishing | The example files name Apple, Azure, and GitHub release variables for upstream builds. They are outside the development setup. The Electron manifest still identifies `openswarm-ai/openswarm` as the release repository. [Windows example](.env.windows.example), [desktop manifest](electron/package.json) |
 
-For advanced configuration, copy `backend/.env.example` to `backend/.env`:
+## Documentation and checks
 
-| Variable | Purpose |
-|----------|---------|
-| `BACKEND_PORT` | Backend server port (default: `8324`) |
-| `GOOGLE_OAUTH_CLIENT_ID` | Google Workspace integration (Gmail, Calendar, Drive) |
-| `GOOGLE_OAUTH_CLIENT_SECRET` | Google Workspace integration |
-| `APPLE_ID` | macOS code signing & notarization (release builds only) |
-| `APPLE_APP_SPECIFIC_PASSWORD` | macOS notarization (release builds only) |
-| `APPLE_TEAM_ID` | macOS code signing (release builds only) |
-| `GH_TOKEN` | GitHub Releases publishing (release builds only) |
+- [Provenance and checks](docs/preservation/provenance.md) records the import, static verification, and limits.
+- [Licence and third-party notices](docs/preservation/third-party-notices.md) records the licence evidence and outstanding redistribution questions.
+- From the source root, `node scripts/run-phase-tests.js` is the upstream dependency-free phase-test entry point. It runs checks for build and release helpers. [Phase-test script](scripts/run-phase-tests.js)
+- From `electron/`, the manifest's `test` script runs four Node test files. The Python test dependencies are listed in `backend/requirements-dev.txt`, and the suite lives under `backend/tests/`. [Electron manifest](electron/package.json), [test dependencies](backend/requirements-dev.txt)
+- The Playwright jobs require a packaged Electron build on macOS or Windows. Follow the platform-specific setup in the [end-to-end guide](e2e/README.md).
 
-<br>
+## Known limitations
 
-## Keyboard Shortcuts
-
-| Key | Action |
-|-----|--------|
-| `D` | Go to Dashboard |
-| `T` | Go to Templates |
-| `1` – `9` | Open agent by position |
-| `Shift+A` | Approve all pending requests |
-| `Shift+D` | Deny all pending requests |
-| `?` | Show shortcuts help |
-
-Type `/` in the chat input to invoke prompt templates and skills as slash commands.
-
-<br>
-
-## Project Structure
-
-```
-backend/
-  apps/
-    agents/           Agent lifecycle, streaming, worktree management
-    dashboards/       Dashboard CRUD and layout persistence
-    dashboard_layout/ Card positions and spatial canvas state
-    templates/        Prompt template CRUD
-    skills/           Skills CRUD (synced to ~/.claude/skills/)
-    tools_lib/        MCP tool configuration and discovery
-    modes/            Agent mode definitions
-    outputs/          Views/outputs, vibe coding, Python executor
-    settings/         App settings and file browser
-    health/           Health check endpoint
-    mcp_registry/     MCP server registry proxy
-    skill_registry/   Anthropic skills marketplace proxy
-  config/             FastAPI app configuration
-  data/               Persistent JSON file storage
-
-frontend/
-  src/
-    app/
-      components/     AppShell, Layout, shared UI
-      pages/
-        Dashboard/    Spatial canvas with agent/view/browser cards
-        AgentChat/    Streaming chat, HITL approvals, branching, diff viewer
-        Templates/    Template library with structured input fields
-        Skills/       Skills library, skill builder, registry browser
-        Tools/        Tool config, MCP discovery, OAuth, registry browser
-        Modes/        Mode definitions with system prompts
-        Views/        Output artifacts, code editor, vibe coding
-        Commands/     Keyboard shortcuts reference
-        Settings/     App configuration
-    shared/
-      state/          Redux slices (agents, dashboards, templates, skills, tools, modes, etc.)
-      ws/             WebSocket manager
-      hooks/          Custom hooks
-      styles/         Theme tokens, global styles
-
-electron/
-  main.js             Electron main process, auto-updater, Python env management
-  scripts/            Build and notarization scripts
-
-scripts/
-  build-app.sh        Desktop app packaging (electron-builder)
-  build-python-env.sh Standalone Python 3.13 environment bundler
-```
-
-<br>
-
-## Tech Stack
-
-**Frontend** — React 18, TypeScript, Redux Toolkit, Material UI v7, CodeMirror 6, Framer Motion, React Router v7, Webpack 5
-
-**Backend** — FastAPI, Python 3.11+, Pydantic v2, claude-agent-sdk, Anthropic SDK, WebSockets, httpx
-
-**Desktop** — Electron 33, electron-builder, electron-updater (auto-updates via GitHub Releases)
-
-**Bundled Runtime** — Standalone Python 3.13 (via python-build-standalone) so end users don't need Python installed
-
-<br>
+The original `GETTING_STARTED.md` refers to `backend/run/dev.sh` and `frontend/run/dev.sh`, which are absent from the archive. The original README also contains old desktop dependencies and platform support claims. Use the actual manifests and launch scripts to identify what ships in this tree. Native Windows and macOS behaviour, packaged updates, Linux desktop support, sign-in, and independent release distribution have not been verified. The upstream CI and publishing workflows are preserved as source, including tag and manual release triggers.
 
 ## Contributing
 
-Contributions are welcome. To get started:
+Propose a change with its scope, source evidence, and checks. Keep the root import intact. Make changes on a topic branch and propose them against `dev` once the preservation repository is open to contributions. Keep upstream attribution and describe changes prominently. For a report containing credentials or private data, contact the repository maintainer privately rather than opening a public issue. [Historical upstream contribution guide](CONTRIBUTING.md)
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Make your changes
-4. Submit a pull request
+## Licence
 
-Please open an issue first for larger changes so we can discuss the approach.
+The root [LICENSE](LICENSE) contains GNU Affero General Public License version 3. The [Electron manifest](electron/package.json) and [frontend manifest](frontend/package.json) declare `AGPL-3.0-only`. The imported upstream README had a conflicting MIT label. The project licence and any separately licensed material are recorded in [third-party notices](docs/preservation/third-party-notices.md).
 
-<br>
-
-## License
-
-MIT — see [LICENSE](LICENSE) for details.
+Preservation changes on 2026-11-17 add documentation and a proposed archive logo. The application source retains the upstream identity and version.
