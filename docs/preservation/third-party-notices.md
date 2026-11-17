@@ -13,6 +13,6 @@ The original [LICENSE](../../LICENSE) is GNU Affero General Public License versi
 
 The package metadata identifies direct packages. It does not supply the required copyright and permission notices for their bundled code and dependencies. The [macOS build script](../../scripts/build-app.sh) and [Windows build script](../../scripts/build-app-win.ps1) explicitly use `--legal-comments=none` when producing bundles. The snapshot contains no complete bundle-level notice inventory. Recover the exact dependency lists and applicable notices before public redistribution.
 
-The source also includes a [skill snapshot](../../backend/apps/skill_registry/skills_snapshot.json), upstream artwork, and onboarding media. Their separate redistribution terms and embedded content need review. The presence of these files at the upstream GitHub revision is provenance evidence. It does not settle their licence.
+The [skill snapshot](../../backend/apps/skill_registry/skills_snapshot.json) has 17 metadata entries that link to Anthropic's skill repository. All 17 skill content fields are empty. The snapshot therefore does not embed the referenced skill instructions. Review the separate terms and contents of upstream artwork and onboarding media before redistribution.
 
 Preserve notices in the independent history and in any agency derivative. For shipped or hosted modifications, check the corresponding-source requirements in [AGPL sections 5, 6, and 13](../../LICENSE). Keep new project branding separate from the original product marks and authorship.

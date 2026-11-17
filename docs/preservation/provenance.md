@@ -19,7 +19,7 @@ On 2026-11-17, archive inspection rejected unsafe Windows path forms, Git metada
 
 The source scan covered all file paths and applied credential, personal-data, and endpoint patterns to text. The static check parsed 703 Python files and nine package manifests without errors. Test strings, examples, and a credential-handling docstring produced candidate matches. This was a bounded scan and does not certify bundled code or media as free of private material. See [third-party notices](third-party-notices.md) for the independent redistribution check.
 
-The checkout audit checked Git object integrity and the source inventory. Dependency installation, desktop startup, account flows, end-to-end tests, and packaged builds remain unverified. The required local untrusted-code sandbox was unavailable during preparation.
+The checkout audit checked Git object integrity and the source inventory. The upstream commit's tree ID matches the independent root's tree ID exactly. Static parsers accepted 11 PowerShell scripts, four Bash scripts, and nine selected Node entry points and test files. Dependency installation, desktop startup, account flows, runtime tests, and packaged builds remain unverified. The required local untrusted-code sandbox was unavailable during preparation.
 
 To inspect the original README and tree from this repository:
 
